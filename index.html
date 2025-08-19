@@ -1,1 +1,543 @@
+<!DOCTYPE html>
+<html lang="en">
 
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Norton Webpage</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;700&display=swap" rel="stylesheet">
+  <style>
+    body {
+      font-family: 'Open Sans', sans-serif;
+    }
+  </style>
+</head>
+
+<body class="bg-gray-50 text-gray-900">
+  <!-- Header -->
+  <header class="bg-white shadow-sm">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 md:px-10 lg:px-16 xl:px-20 py-4">
+      <div class="flex items-center justify-between">
+
+        <!-- Left: Logo -->
+        <div class="flex items-center gap-2">
+          <img alt="Yellow checkmark icon" class="w-6 h-6"
+            src="https://storage.googleapis.com/a1aa/image/b6fca273-3cd1-4d70-15f0-e3fd25be2f5a.jpg" />
+          <span class="text-xl sm:text-2xl font-bold text-gray-900">norton</span>
+        </div>
+
+        <!-- Right: Desktop Menu -->
+        <div class="hidden md:flex items-center gap-4">
+          <!-- Search -->
+          <div class="relative w-64">
+            <input type="search" placeholder="Search products..." class="w-full pl-10 pr-4 py-2 text-sm border border-yellow-400 
+                        rounded-full focus:outline-none focus:ring-2 focus:ring-yellow-400" />
+            <i class="fas fa-search absolute left-3 top-1/2 transform -translate-y-1/2 text-yellow-400"></i>
+          </div>
+
+          <!-- Cart + Fav -->
+          <div class="flex items-center gap-3 bg-yellow-50 border border-yellow-400 
+                    rounded-full px-4 py-2">
+            <button aria-label="Favorites" class="text-yellow-400 hover:text-yellow-500">
+              <i class="far fa-heart text-lg"></i>
+            </button>
+            <button aria-label="Cart" class="text-yellow-400 hover:text-yellow-500">
+              <i class="fas fa-shopping-cart text-lg"></i>
+            </button>
+            <span class="text-sm font-medium">Total: $0.00</span>
+          </div>
+        </div>
+
+        <!-- Mobile Toggle Button -->
+        <button id="menu-toggle" class="md:hidden text-yellow-400 text-2xl focus:outline-none">
+          <i class="fas fa-bars"></i>
+        </button>
+      </div>
+
+      <!-- Mobile Menu (Hidden by default) -->
+      <div id="mobile-menu" class="hidden mt-4 space-y-4 md:hidden">
+
+        <!-- Search -->
+        <div class="relative">
+          <input type="search" placeholder="Search products..." class="w-full pl-10 pr-4 py-2 text-sm border border-yellow-400 
+                      rounded-full focus:outline-none focus:ring-2 focus:ring-yellow-400" />
+          <i class="fas fa-search absolute left-3 top-1/2 transform -translate-y-1/2 text-yellow-400"></i>
+        </div>
+
+        <!-- Cart + Fav -->
+        <div class="flex items-center justify-between bg-yellow-50 border border-yellow-400 
+                  rounded-full px-4 py-2">
+          <div class="flex gap-3">
+            <button aria-label="Favorites" class="text-yellow-400 hover:text-yellow-500">
+              <i class="far fa-heart text-lg"></i>
+            </button>
+            <button aria-label="Cart" class="text-yellow-400 hover:text-yellow-500">
+              <i class="fas fa-shopping-cart text-lg"></i>
+            </button>
+          </div>
+          <span class="text-sm font-medium">Total: $0.00</span>
+        </div>
+
+        <!-- Mobile Nav Links -->
+        <nav class="bg-yellow-400 text-white rounded-lg p-4">
+          <ul class="space-y-3 text-sm font-semibold uppercase">
+            <li><a href="#" class="block hover:underline">Home</a></li>
+            <li><a href="#" class="block hover:underline">Norton Antivirus</a></li>
+            <li><a href="#" class="block hover:underline">McAfee Antivirus</a></li>
+            <li><a href="#" class="block hover:underline">Trend Micro</a></li>
+            <li><a href="#" class="block hover:underline">Avast</a></li>
+            <li><a href="#" class="block hover:underline">AVG Antivirus</a></li>
+            <li><a href="#" class="block hover:underline">My Account</a></li>
+          </ul>
+        </nav>
+      </div>
+    </div>
+
+    <!-- Desktop Navigation -->
+    <nav class="bg-yellow-400 text-white px-4 sm:px-6 md:px-10 lg:px-16 xl:px-20 py-3 hidden md:block">
+      <ul class="flex flex-wrap gap-6 max-w-7xl mx-auto text-sm font-semibold uppercase">
+        <li><a href="#" class="hover:underline">Home</a></li>
+        <li><a href="#" class="hover:underline">Norton Antivirus</a></li>
+        <li><a href="#" class="hover:underline">McAfee Antivirus</a></li>
+        <li><a href="#" class="hover:underline">Trend Micro</a></li>
+        <li><a href="#" class="hover:underline">Avast</a></li>
+        <li><a href="#" class="hover:underline">AVG Antivirus</a></li>
+        <li><a href="#" class="hover:underline">My Account</a></li>
+      </ul>
+    </nav>
+  </header>
+
+
+
+  <section class="bg-yellow-50 px-4 sm:px-6 md:px-10 lg:px-16 xl:px-20 py-10">
+    <div class="max-w-3xl mx-auto text-center">
+      <!-- Norton Logo -->
+      <div class="flex flex-col items-center justify-center">
+        <div class="flex items-center space-x-2">
+          <span class="text-4xl sm:text-5xl md:text-6xl font-extrabold text-black">norton™</span>
+          <span class="inline-block bg-yellow-400 text-black rounded-full p-2">
+            <svg class="w-6 h-6 md:w-7 md:h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24"
+              xmlns="http://www.w3.org/2000/svg">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+            </svg>
+          </span>
+        </div>
+      </div>
+
+      <!-- Call Button -->
+      <div class="mt-6">
+        <button
+          onclick="callNow()"
+          class="w-full sm:w-auto bg-blue-500 text-white font-semibold py-3 px-6 rounded-full flex items-center justify-center space-x-2 mx-auto hover:bg-blue-600 shadow-md transition text-sm sm:text-base md:text-lg">
+          <svg class="w-5 h-5 sm:w-6 sm:h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"
+            xmlns="http://www.w3.org/2000/svg">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+              d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z">
+            </path>
+          </svg>
+          <span>CALL US NOW!</span>
+          <span class="ml-2 font-bold">+1-888-274-1480</span>
+        </button>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- Norton Antivirus Section -->
+  <section class="px-4 sm:px-6 md:px-10 lg:px-16 xl:px-20 py-8 max-w-7xl mx-auto">
+    <div class="flex justify-between items-center mb-6">
+      <h2 class="text-lg font-bold uppercase border-b-2 border-gray-900 pb-2">Norton Antivirus</h2>
+      <a href="#" class="text-yellow-400 text-sm font-semibold uppercase hover:underline">View All</a>
+    </div>
+    <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-6">
+      <article
+        class="bg-white border border-gray-200 rounded-lg p-4 flex flex-col items-center shadow-sm hover:shadow-md transition-shadow">
+        <div class="relative w-full max-w-[120px]">
+          <img alt="Norton Anti Virus Plus 1 Year 1 Device box" class="mx-auto"
+            src="https://storage.googleapis.com/a1aa/image/a3cbbab2-406f-46cb-8078-f8e4184a78ef.jpg" width="120"
+            height="150">
+          <span
+            class="absolute top-2 right-2 bg-red-600 text-white text-xs font-bold rounded-full px-2 py-1">Sale!</span>
+        </div>
+        <p class="mt-3 text-sm font-medium text-center">Norton Anti Virus Plus 1 Year 1 Device</p>
+        <div class="mt-2 text-sm">
+          <span class="line-through text-yellow-400">$37.99</span>
+          <span class="font-bold ml-2">$29.89</span>
+        </div>
+        <button
+          class="mt-3 bg-yellow-400 text-white text-sm font-semibold px-4 py-2 rounded hover:bg-yellow-500 transition">Add
+          to Cart</button>
+      </article>
+      <article
+        class="bg-white border border-gray-200 rounded-lg p-4 flex flex-col items-center shadow-sm hover:shadow-md transition-shadow">
+        <div class="relative w-full max-w-[120px]">
+          <img alt="Norton 360 Deluxe box" class="mx-auto"
+            src="https://storage.googleapis.com/a1aa/image/e25e64f7-112e-4e40-d518-0a1f843d2a00.jpg" width="120"
+            height="150">
+          <span
+            class="absolute top-2 right-2 bg-red-600 text-white text-xs font-bold rounded-full px-2 py-1">Sale!</span>
+        </div>
+        <p class="mt-3 text-sm font-medium text-center">Norton 360 Deluxe – 1-Year / 5-Device – Global</p>
+        <div class="mt-2 text-sm">
+          <span class="line-through text-yellow-400">$129.99</span>
+          <span class="font-bold ml-2">$102.89</span>
+        </div>
+        <button
+          class="mt-3 bg-yellow-400 text-white text-sm font-semibold px-4 py-2 rounded hover:bg-yellow-500 transition">Add
+          to Cart</button>
+      </article>
+      <article
+        class="bg-white border border-gray-200 rounded-lg p-4 flex flex-col items-center shadow-sm hover:shadow-md transition-shadow">
+        <div class="relative w-full max-w-[120px]">
+          <img alt="Norton 360 Deluxe box" class="mx-auto"
+            src="https://storage.googleapis.com/a1aa/image/e25e64f7-112e-4e40-d518-0a1f843d2a00.jpg" width="120"
+            height="150">
+          <span
+            class="absolute top-2 right-2 bg-red-600 text-white text-xs font-bold rounded-full px-2 py-1">Sale!</span>
+        </div>
+        <p class="mt-3 text-sm font-medium text-center">Norton 360 Deluxe – 1-Year / 3-Devices</p>
+        <div class="mt-2 text-sm">
+          <span class="line-through text-yellow-400">$79.99</span>
+          <span class="font-bold ml-2">$68.99</span>
+        </div>
+        <button
+          class="mt-3 bg-yellow-400 text-white text-sm font-semibold px-4 py-2 rounded hover:bg-yellow-500 transition">Add
+          to Cart</button>
+      </article>
+      <article
+        class="bg-white border border-gray-200 rounded-lg p-4 flex flex-col items-center shadow-sm hover:shadow-md transition-shadow">
+        <div class="relative w-full max-w-[120px]">
+          <img alt="Norton 360 Deluxe box" class="mx-auto"
+            src="https://storage.googleapis.com/a1aa/image/e25e64f7-112e-4e40-d518-0a1f843d2a00.jpg" width="120"
+            height="150">
+          <span
+            class="absolute top-2 right-2 bg-red-600 text-white text-xs font-bold rounded-full px-2 py-1">Sale!</span>
+        </div>
+        <p class="mt-3 text-sm font-medium text-center">Norton 360 Deluxe – 1-Year / 3-Device – Global</p>
+        <div class="mt-2 text-sm">
+          <span class="line-through text-yellow-400">$119.99</span>
+          <span class="font-bold ml-2">$98.99</span>
+        </div>
+        <button
+          class="mt-3 bg-yellow-400 text-white text-sm font-semibold px-4 py-2 rounded hover:bg-yellow-500 transition">Add
+          to Cart</button>
+      </article>
+      <article
+        class="bg-white border border-gray-200 rounded-lg p-4 flex flex-col items-center shadow-sm hover:shadow-md transition-shadow">
+        <div class="relative w-full max-w-[120px]">
+          <img alt="Norton Utilities Ultimate box" class="mx-auto"
+            src="https://storage.googleapis.com/a1aa/image/eb11b3ec-2a9c-45d9-7f81-3228403602df.jpg" width="120"
+            height="150">
+          <span
+            class="absolute top-2 right-2 bg-red-600 text-white text-xs font-bold rounded-full px-2 py-1">Sale!</span>
+        </div>
+        <p class="mt-3 text-sm font-medium text-center">Norton Utilities Ultimate – 10 Devices</p>
+        <div class="mt-2 text-sm">
+          <span class="line-through text-yellow-400">$40.00</span>
+          <span class="font-bold ml-2">$38.00</span>
+        </div>
+        <button
+          class="mt-3 bg-yellow-400 text-white text-sm font-semibold px-4 py-2 rounded hover:bg-yellow-500 transition">Add
+          to Cart</button>
+      </article>
+      <article
+        class="bg-white border border-gray-200 rounded-lg p-4 flex flex-col items-center shadow-sm hover:shadow-md transition-shadow">
+        <div class="relative w-full max-w-[120px]">
+          <img alt="Norton Secure VPN box" class="mx-auto"
+            src="https://storage.googleapis.com/a1aa/image/328ebc6f-ff1e-4423-7b9f-02cea4689376.jpg" width="120"
+            height="150">
+          <span
+            class="absolute top-2 right-2 bg-red-600 text-white text-xs font-bold rounded-full px-2 py-1">Sale!</span>
+        </div>
+        <p class="mt-3 text-sm font-medium text-center">Norton Secure VPN for up to 5 Devices 2024</p>
+        <div class="mt-2 text-sm">
+          <span class="line-through text-yellow-400">$30.00</span>
+          <span class="font-bold ml-2">$27.00</span>
+        </div>
+        <button
+          class="mt-3 bg-yellow-400 text-white text-sm font-semibold px-4 py-2 rounded hover:bg-yellow-500 transition">Add
+          to Cart</button>
+      </article>
+      <article
+        class="bg-white border border-gray-200 rounded-lg p-4 flex flex-col items-center shadow-sm hover:shadow-md transition-shadow">
+        <div class="relative w-full max-w-[120px]">
+          <img alt="Norton 360 Deluxe box" class="mx-auto"
+            src="https://storage.googleapis.com/a1aa/image/43a90380-5910-4b6e-be0c-5c303f536af7.jpg" width="120"
+            height="150">
+          <span
+            class="absolute top-2 right-2 bg-red-600 text-white text-xs font-bold rounded-full px-2 py-1">Sale!</span>
+        </div>
+        <p class="mt-3 text-sm font-medium text-center">Norton 360 Deluxe, Antivirus Software – 3 Devices</p>
+        <div class="mt-2 text-sm">
+          <span class="line-through text-yellow-400">$35.00</span>
+          <span class="font-bold ml-2">$31.00</span>
+        </div>
+        <button
+          class="mt-3 bg-yellow-400 text-white text-sm font-semibold px-4 py-2 rounded hover:bg-yellow-500 transition">Add
+          to Cart</button>
+      </article>
+      <article
+        class="bg-white border border-gray-200 rounded-lg p-4 flex flex-col items-center shadow-sm hover:shadow-md transition-shadow">
+        <div class="relative w-full max-w-[120px]">
+          <img alt="Norton 360 for Gamers box" class="mx-auto"
+            src="https://storage.googleapis.com/a1aa/image/7a694325-575c-4dd2-9586-2a20ae140beb.jpg" width="120"
+            height="150">
+          <span
+            class="absolute top-2 right-2 bg-red-600 text-white text-xs font-bold rounded-full px-2 py-1">Sale!</span>
+        </div>
+        <p class="mt-3 text-sm font-medium text-center">Norton 360 for Gamers – 3 Devices 2024</p>
+        <div class="mt-2 text-sm">
+          <span class="line-through text-yellow-400">$44.00</span>
+          <span class="font-bold ml-2">$42.00</span>
+        </div>
+        <button
+          class="mt-3 bg-yellow-400 text-white text-sm font-semibold px-4 py-2 rounded hover:bg-yellow-500 transition">Add
+          to Cart</button>
+      </article>
+    </div>
+  </section>
+
+  <!-- Features Section -->
+  <section class="bg-yellow-400 text-white py-12 px-4 sm:px-6 md:px-10 lg:px-16 xl:px-20">
+    <div class="grid grid-cols-1 sm:grid-cols-3 gap-8 max-w-7xl mx-auto">
+      <div class="flex flex-col items-center sm:items-start text-center sm:text-left gap-3">
+        <i class="fas fa-shopping-bag text-2xl"></i>
+        <h3 class="text-lg font-bold uppercase">Original Products</h3>
+        <p class="text-sm max-w-xs">We always sell authentic original products to our customers.</p>
+      </div>
+      <div class="flex flex-col items-center sm:items-start text-center sm:text-left gap-3">
+        <i class="fas fa-truck text-2xl"></i>
+        <h3 class="text-lg font-bold uppercase">Express Shipping</h3>
+        <p class="text-sm max-w-xs">Get all your orders delivered right next day you place your order.</p>
+      </div>
+      <div class="flex flex-col items-center sm:items-start text-center sm:text-left gap-3">
+        <i class="fas fa-headset text-2xl"></i>
+        <h3 class="text-lg font-bold uppercase">Call Now</h3>
+        <p class="text-sm max-w-xs">Our customer support team is ready to help you in every point.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Second Product Section -->
+  <section class="bg-gray-100 px-4 sm:px-6 md:px-10 lg:px-16 xl:px-20 py-8 max-w-7xl mx-auto">
+    <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-6">
+      <article
+        class="bg-white border border-gray-200 rounded-lg p-4 flex flex-col items-center shadow-sm hover:shadow-md transition-shadow">
+        <div class="relative w-full max-w-[120px]">
+          <img alt="Norton 360 Deluxe box" class="mx-auto"
+            src="https://storage.googleapis.com/a1aa/image/e25e64f7-112e-4e40-d518-0a1f843d2a00.jpg" width="120"
+            height="150">
+          <span
+            class="absolute top-2 right-2 bg-red-600 text-white text-xs font-bold rounded-full px-2 py-1">Sale!</span>
+        </div>
+        <p class="mt-3 text-sm font-medium text-center">Norton 360 Deluxe – 1-Year / 3-Device – Global</p>
+        <div class="mt-2 text-sm">
+          <span class="line-through text-yellow-400">$110.90</span>
+          <span class="font-bold ml-2">$99.99</span>
+        </div>
+        <button
+          class="mt-3 bg-yellow-400 text-white text-sm font-semibold px-4 py-2 rounded hover:bg-yellow-500 transition">Add
+          to Cart</button>
+      </article>
+      <article
+        class="bg-white border border-gray-200 rounded-lg p-4 flex flex-col items-center shadow-sm hover:shadow-md transition-shadow">
+        <div class="relative w-full max-w-[120px]">
+          <img alt="Norton 360 Deluxe box" class="mx-auto"
+            src="https://storage.googleapis.com/a1aa/image/e25e64f7-112e-4e40-d518-0a1f843d2a00.jpg" width="120"
+            height="150">
+          <span
+            class="absolute top-2 right-2 bg-red-600 text-white text-xs font-bold rounded-full px-2 py-1">Sale!</span>
+        </div>
+        <p class="mt-3 text-sm font-medium text-center">Norton 360 Deluxe – 1-Year / 3-Devices</p>
+        <div class="mt-2 text-sm">
+          <span class="line-through text-yellow-400">$70.00</span>
+          <span class="font-bold ml-2">$69.99</span>
+        </div>
+        <button
+          class="mt-3 bg-yellow-400 text-white text-sm font-semibold px-4 py-2 rounded hover:bg-yellow-500 transition">Add
+          to Cart</button>
+      </article>
+      <article
+        class="bg-white border border-gray-200 rounded-lg p-4 flex flex-col items-center shadow-sm hover:shadow-md transition-shadow">
+        <div class="relative w-full max-w-[120px]">
+          <img alt="Norton 360 Deluxe box" class="mx-auto"
+            src="https://storage.googleapis.com/a1aa/image/e25e64f7-112e-4e40-d518-0a1f843d2a00.jpg" width="120"
+            height="150">
+          <span
+            class="absolute top-2 right-2 bg-red-600 text-white text-xs font-bold rounded-full px-2 py-1">Sale!</span>
+        </div>
+        <p class="mt-3 text-sm font-medium text-center">Norton 360 Deluxe – 1-Year / 5-Device – Global</p>
+        <div class="mt-2 text-sm">
+          <span class="line-through text-yellow-400">$120.99</span>
+          <span class="font-bold ml-2">$102.99</span>
+        </div>
+        <button
+          class="mt-3 bg-yellow-400 text-white text-sm font-semibold px-4 py-2 rounded hover:bg-yellow-500 transition">Add
+          to Cart</button>
+      </article>
+      <article
+        class="bg-white border border-gray-200 rounded-lg p-4 flex flex-col items-center shadow-sm hover:shadow-md transition-shadow">
+        <div class="relative w-full max-w-[120px]">
+          <img alt="Norton AntiTrack box" class="mx-auto"
+            src="https://storage.googleapis.com/a1aa/image/a4ee45ff-362f-40d0-8052-4e9d366aead2.jpg" width="120"
+            height="150">
+          <span
+            class="absolute top-2 right-2 bg-red-600 text-white text-xs font-bold rounded-full px-2 py-1">Sale!</span>
+        </div>
+        <p class="mt-3 text-sm font-medium text-center">Norton AntiTrack – for blocking trackers</p>
+        <div class="mt-2 text-sm">
+          <span class="line-through text-yellow-400">$40.00</span>
+          <span class="font-bold ml-2">$37.00</span>
+        </div>
+        <button
+          class="mt-3 bg-yellow-400 text-white text-sm font-semibold px-4 py-2 rounded hover:bg-yellow-500 transition">Add
+          to Cart</button>
+      </article>
+      <article
+        class="bg-white border border-gray-200 rounded-lg p-4 flex flex-col items-center shadow-sm hover:shadow-md transition-shadow">
+        <div class="relative w-full max-w-[120px]">
+          <img alt="Norton 360 Standard box" class="mx-auto"
+            src="https://storage.googleapis.com/a1aa/image/7a0bd258-5642-435d-b5ae-f1ffc3506916.jpg" width="120"
+            height="150">
+          <span
+            class="absolute top-2 right-2 bg-red-600 text-white text-xs font-bold rounded-full px-2 py-1">Sale!</span>
+        </div>
+        <p class="mt-3 text-sm font-medium text-center">Norton 360 Standard, Antivirus Software-1 Device</p>
+        <div class="mt-2 text-sm">
+          <span class="line-through text-yellow-400">$25.00</span>
+          <span class="font-bold ml-2">$23.00</span>
+        </div>
+        <button
+          class="mt-3 bg-yellow-400 text-white text-sm font-semibold px-4 py-2 rounded hover:bg-yellow-500 transition">Add
+          to Cart</button>
+      </article>
+      <article
+        class="bg-white border border-gray-200 rounded-lg p-4 flex flex-col items-center shadow-sm hover:shadow-md transition-shadow">
+        <div class="relative w-full max-w-[120px]">
+          <img alt="Norton 360 Premium box" class="mx-auto"
+            src="https://storage.googleapis.com/a1aa/image/31b99a21-3a87-4403-d5ac-56062fd6213c.jpg" width="120"
+            height="150">
+          <span
+            class="absolute top-2 right-2 bg-red-600 text-white text-xs font-bold rounded-full px-2 py-1">Sale!</span>
+        </div>
+        <p class="mt-3 text-sm font-medium text-center">Norton 360 Premium, Antivirus Software -10 Devices</p>
+        <div class="mt-2 text-sm">
+          <span class="line-through text-yellow-400">$60.00</span>
+          <span class="font-bold ml-2">$56.00</span>
+        </div>
+        <button
+          class="mt-3 bg-yellow-400 text-white text-sm font-semibold px-4 py-2 rounded hover:bg-yellow-500 transition">Add
+          to Cart</button>
+      </article>
+      <article
+        class="bg-white border border-gray-200 rounded-lg p-4 flex flex-col items-center shadow-sm hover:shadow-md transition-shadow">
+        <div class="relative w-full max-w-[120px]">
+          <img alt="Norton 360 for Gamers box" class="mx-auto"
+            src="https://storage.googleapis.com/a1aa/image/7a694325-575c-4dd2-9586-2a20ae140beb.jpg" width="120"
+            height="150">
+          <span
+            class="absolute top-2 right-2 bg-red-600 text-white text-xs font-bold rounded-full px-2 py-1">Sale!</span>
+        </div>
+        <p class="mt-3 text-sm font-medium text-center">Norton 360 for Gamers – 3 Devices 2024</p>
+        <div class="mt-2 text-sm">
+          <span class="line-through text-yellow-400">$44.00</span>
+          <span class="font-bold ml-2">$42.00</span>
+        </div>
+        <button
+          class="mt-3 bg-yellow-400 text-white text-sm font-semibold px-4 py-2 rounded hover:bg-yellow-500 transition">Add
+          to Cart</button>
+      </article>
+      <article
+        class="bg-white border border-gray-200 rounded-lg p-4 flex flex-col items-center shadow-sm hover:shadow-md transition-shadow">
+        <div class="relative w-full max-w-[120px]">
+          <img alt="Norton 360 Deluxe box" class="mx-auto"
+            src="https://storage.googleapis.com/a1aa/image/43a90380-5910-4b6e-be0c-5c303f536af7.jpg" width="120"
+            height="150">
+          <span
+            class="absolute top-2 right-2 bg-red-600 text-white text-xs font-bold rounded-full px-2 py-1">Sale!</span>
+        </div>
+        <p class="mt-3 text-sm font-medium text-center">Norton 360 Deluxe, Antivirus Software – 3 Devices</p>
+        <div class="mt-2 text-sm">
+          <span class="line-through text-yellow-400">$35.00</span>
+          <span class="font-bold ml-2">$31.00</span>
+        </div>
+        <button
+          class="mt-3 bg-yellow-400 text-white text-sm font-semibold px-4 py-2 rounded hover:bg-yellow-500 transition">Add
+          to Cart</button>
+      </article>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="bg-gray-900 text-gray-400 px-4 sm:px-6 md:px-10 lg:px-16 xl:px-20 py-12">
+    <div class="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-8">
+      <div>
+        <h3 class="text-white font-bold text-lg uppercase mb-4">About Us</h3>
+        <p class="text-sm leading-relaxed mb-4">Welcome to Get Web Help Online IT Solutions, your trusted source for
+          digital security solutions. We specialize in providing premium antivirus and computer security software to
+          safeguard your devices and data from the ever-evolving threats of the digital landscape.</p>
+        <address class="not-italic text-sm space-y-2">
+          <div>360 Avenel St Avenel, NJ 07001</div>
+          <div>Sunday – Friday 6AM – 11:00 PM</div>
+        </address>
+      </div>
+      <div>
+        <h3 class="text-white font-bold text-lg uppercase mb-4">Help</h3>
+        <ul class="space-y-2 text-sm">
+          <li><a href="#" class="hover:underline">Privacy Policy</a></li>
+          <li><a href="#" class="hover:underline">Checkout</a></li>
+          <li><a href="#" class="hover:underline">Disclaimer</a></li>
+          <li><a href="#" class="hover:underline">My Account</a></li>
+        </ul>
+      </div>
+      <div>
+        <h3 class="text-white font-bold text-lg uppercase mb-4">Important Links</h3>
+        <ul class="space-y-2 text-sm">
+          <li><a href="#" class="hover:underline">About Us</a></li>
+          <li><a href="#" class="hover:underline">Refund and Returns Policy</a></li>
+          <li><a onclick="callNow()" class="hover:underline">Contact Us</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="mt-10 max-w-7xl mx-auto flex flex-col sm:flex-row justify-between items-center gap-6">
+      <p class="text-sm text-gray-500">Copyright © 2025 AntivirusHelp.online</p>
+      <div class="flex items-center gap-4">
+        <img alt="PayPal payment method logo" class="h-5"
+          src="https://storage.googleapis.com/a1aa/image/9e7c7e9a-c09b-4b25-a2eb-9faa622d06ec.jpg" width="60"
+          height="20">
+        <img alt="VISA payment method logo" class="h-5"
+          src="https://storage.googleapis.com/a1aa/image/12d2c39e-3b01-4328-3ce4-3aeeb9946469.jpg" width="60"
+          height="20">
+        <img alt="MasterCard payment method logo" class="h-5"
+          src="https://storage.googleapis.com/a1aa/image/0865546b-a2cd-4a73-fe02-857d645607b1.jpg" width="60"
+          height="20">
+        <img alt="Skrill payment method logo" class="h-5"
+          src="https://storage.googleapis.com/a1aa/image/608d20f5-c80c-4909-67ec-c620fd6ac883.jpg" width="60"
+          height="20">
+        <img alt="Payoneer payment method logo" class="h-5"
+          src="https://storage.googleapis.com/a1aa/image/f22e2b0a-78f0-47ce-845b-312779adfa36.jpg" width="60"
+          height="20">
+      </div>
+    </div>
+  </footer>
+
+</body>
+<script>
+
+  
+  function callNow() {
+          // Mobile devices will trigger call
+          window.location.href = 'tel:+1-888-274-1480';
+      }
+  // Mobile Toggle Script
+  const toggleBtn = document.getElementById("menu-toggle");
+  const mobileMenu = document.getElementById("mobile-menu");
+
+  toggleBtn.addEventListener("click", () => {
+    mobileMenu.classList.toggle("hidden");
+  });
+</script>
+
+</html>
